@@ -55,6 +55,7 @@
       <field name="parent" ref="type_current_liability" />
       <field name="sequence" eval="10" />
       <field name="statement">balance</field>
+      <field name="assets" eval="False" />
       <field name="payable" eval="True" />
     </record>
     <record model="account.account.type.template" id="type_tax">
