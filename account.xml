@@ -82,11 +82,13 @@
       <field name="name">Revenue</field>
       <field name="parent" ref="type_income" />
       <field name="statement">income</field>
+      <field name="revenue" eval="True" />
     </record>
     <record model="account.account.type.template" id="type_expense">
       <field name="name">Expense</field>
       <field name="parent" ref="type_income" />
       <field name="statement">income</field>
+      <field name="expense" eval="True" />
     </record>
     <record model="account.account.type.template" id="type_off_balance">
       <field name="name">Off-Balance</field>
