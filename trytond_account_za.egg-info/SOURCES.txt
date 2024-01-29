@@ -5,6 +5,8 @@ MANIFEST.in
 README.rst
 setup.py
 ./__init__.py
+./account.xml
+./tax.xml
 ./tryton.cfg
 ./tests/__init__.py
 ./tests/test_module.py

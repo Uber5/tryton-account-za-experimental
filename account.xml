@@ -1,0 +1,171 @@
+<tryton>
+  <data>
+    <!--                        -->
+    <!-- Account Type Templates -->
+    <!--                        -->
+    <record model="account.account.type.template" id="type_root">
+      <field name="name">South African Account Type Chart</field>
+      <field name="sequence" eval="10" />
+      <field name="statement" eval="None" />
+    </record>
+    <record model="account.account.type.template" id="type_asset">
+      <field name="name">Asset</field>
+      <field name="parent" ref="type_root" />
+      <field name="statement">balance</field>
+      <field name="assets" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_current_asset">
+      <field name="name">Current Assets</field>
+      <field name="parent" ref="type_asset" />
+      <field name="statement">balance</field>
+      <field name="assets" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_cash">
+      <field name="name">Cash</field>
+      <field name="parent" ref="type_current_asset" />
+      <field name="statement">balance</field>
+      <field name="assets" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_receivable">
+      <field name="name">Receivable</field>
+      <field name="parent" ref="type_current_asset" />
+      <field name="statement">balance</field>
+      <field name="assets" eval="True" />
+      <field name="receivable" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_long_term_asset">
+      <field name="name">Long-term</field>
+      <field name="parent" ref="type_asset" />
+      <field name="statement">balance</field>
+      <field name="assets" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_liability">
+      <field name="name">Liability</field>
+      <field name="parent" ref="type_root" />
+      <field name="sequence" eval="20" />
+      <field name="statement">balance</field>
+    </record>
+    <record model="account.account.type.template" id="type_current_liability">
+      <field name="name">Current Liabilities</field>
+      <field name="parent" ref="type_liability" />
+      <field name="statement">balance</field>
+    </record>
+    <record model="account.account.type.template" id="type_payable">
+      <field name="name">Payable</field>
+      <field name="parent" ref="type_current_liability" />
+      <field name="sequence" eval="10" />
+      <field name="statement">balance</field>
+      <field name="payable" eval="True" />
+    </record>
+    <record model="account.account.type.template" id="type_tax">
+      <field name="name">Tax</field>
+      <field name="parent" ref="type_current_liability" />
+      <field name="statement">balance</field>
+    </record>
+    <record model="account.account.type.template" id="type_long_term_liability">
+      <field name="name">Long-term</field>
+      <field name="parent" ref="type_liability" />
+      <field name="statement">balance</field>
+    </record>
+    <record model="account.account.type.template" id="type_equity">
+      <field name="name">Equity</field>
+      <field name="parent" ref="type_root" />
+      <field name="sequence" eval="30" />
+      <field name="statement">balance</field>
+    </record>
+    <record model="account.account.type.template" id="type_income">
+      <field name="name">Income</field>
+      <field name="parent" ref="type_equity" />
+      <field name="statement">income</field>
+    </record>
+    <record model="account.account.type.template" id="type_revenue">
+      <field name="name">Revenue</field>
+      <field name="parent" ref="type_income" />
+      <field name="statement">income</field>
+    </record>
+    <record model="account.account.type.template" id="type_expense">
+      <field name="name">Expense</field>
+      <field name="parent" ref="type_income" />
+      <field name="statement">income</field>
+    </record>
+    <record model="account.account.type.template" id="type_off_balance">
+      <field name="name">Off-Balance</field>
+      <field name="parent" ref="type_root" />
+      <field name="sequence" eval="60" />
+      <field name="statement">off-balance</field>
+    </record>
+    <!--                   -->
+    <!-- Account Templates -->
+    <!--                   -->
+    <record model="account.account.template" id="account_root">
+      <field name="name">South Africa Account Chart</field>
+      <field name="code">root</field>
+    </record>
+    <record model="account.account.template" id="account_cash">
+      <field name="name">Main Cash</field>
+      <field name="code">cash</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_cash" />
+    </record>
+    <record model="account.account.template" id="account_expense">
+      <field name="name">Main Expense</field>
+      <field name="code">expense</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_expense" />
+      <field name="reconcile" eval="True" />
+    </record>
+    <record model="account.account.template" id="account_payable">
+      <field name="name">Main Payable</field>
+      <field name="code">payable</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_payable" />
+      <field name="reconcile" eval="True" />
+      <field name="party_required" eval="True" />
+    </record>
+    <record model="account.account.template" id="account_receivable">
+      <field name="name">Main Receivable</field>
+      <field name="code">receivable</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_receivable" />
+      <field name="reconcile" eval="True" />
+      <field name="party_required" eval="True" />
+    </record>
+    <record model="account.account.template" id="account_revenue">
+      <field name="name">Main Revenue</field>
+      <field name="code">revenue</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_revenue" />
+      <field name="reconcile" eval="True" />
+    </record>
+    <record model="account.account.template" id="account_tax">
+      <field name="name">Main Tax</field>
+      <field name="code">tax</field>
+      <field name="parent" ref="account_root" />
+      <field name="type" ref="type_tax" />
+    </record>
+    <record model="account.account.template" id="account_tax_vat">
+      <field name="name">Tax &#8211; VAT</field>
+      <field name="code">tax_vat</field>
+      <field name="parent" ref="account_tax" />
+      <field name="type" ref="type_tax" />
+    </record>
+    <record model="account.account.template" id="account_tax_paye">
+      <field name="name">Tax &#8211; PAYE</field>
+      <field name="code">tax_paye</field>
+      <field name="parent" ref="account_tax" />
+      <field name="type" ref="type_tax" />
+    </record>
+    <record model="account.account.template" id="account_tax_dsl">
+      <field name="name">Tax &#8211; SDL</field>
+      <field name="code">tax_dsl</field>
+      <field name="parent" ref="account_tax" />
+      <field name="type" ref="type_tax" />
+    </record>
+    <record model="account.account.template" id="account_tax_uif">
+      <field name="name">Tax &#8211; UIF</field>
+      <field name="code">tax_uif</field>
+      <field name="parent" ref="account_tax" />
+      <field name="type" ref="type_tax" />
+    </record>
+  </data>
+</tryton>

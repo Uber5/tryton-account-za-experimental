@@ -1,0 +1,325 @@
+<tryton>
+  <data>
+    <!--            -->
+    <!-- Tax Groups -->
+    <!--            -->
+    <record model="account.tax.group" id="group_vat_output">
+      <field name="name">VAT Sales Tax</field>
+      <field name="code">vat_output</field>
+      <field name="kind">sale</field>
+    </record>
+    <record model="account.tax.group" id="group_vat_input">
+      <field name="name">VAT Purchase Tax</field>
+      <field name="code">vat_input</field>
+      <field name="kind">purchase</field>
+    </record>
+    <!--               -->
+    <!-- Tax Templates -->
+    <!--               -->
+    <record model="account.tax.template" id="tax_VAT">
+      <field name="name">VAT</field>
+      <field name="description">Taxable Sales</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.19')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax" />
+      <field name="credit_note_account" ref="account_tax" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_vst_19">
+      <field name="name">vst_19</field>
+      <field name="description">VAT Capital Goods and Services</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.19')" />
+      <field name="type">none</field>
+      <field name="invoice_account" eval="None" />
+      <field name="credit_note_account" eval="None" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_1">
+      <field name="name">A_1</field>
+      <field name="description">Standard rate (excl capital goods, services, accommodation)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_1A">
+      <field name="name">A_1A</field>
+      <field name="description">Standard rate (capital goods and services)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_2">
+      <field name="name">A_2</field>
+      <field name="description">Zero rate (excluding goods exported)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.0')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_2A">
+      <field name="name">A_2A</field>
+      <field name="description">Zero rate (only exported goods)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.0')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_3">
+      <field name="name">A_3</field>
+      <field name="description">Exempt and non-supplies</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.0')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_5">
+      <field name="name">A_5</field>
+      <field name="description">Supply of accommodation (exceeding 28 days)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.09')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_A_7">
+      <field name="name">A_7</field>
+      <field name="description">Supply of accommodation (not exceeding 28 days)</field>
+      <field name="group" ref="group_vat_output" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_14">
+      <field name="name">B_14</field>
+      <field name="description">Capital goods and services received</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_14A">
+      <field name="name">B_14A</field>
+      <field name="description">Capital goods imported</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_15">
+      <field name="name">B_15</field>
+      <field name="description">Goods and services received (not capital goods)</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_16">
+      <field name="name">B_16</field>
+      <field name="description">Change in use</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_17">
+      <field name="name">B_17</field>
+      <field name="description">Bad debts</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.template" id="tax_B_18">
+      <field name="name">B_18</field>
+      <field name="description">Other</field>
+      <field name="group" ref="group_vat_input" />
+      <field name="rate" eval="Decimal('0.15')" />
+      <field name="type">none</field>
+      <field name="invoice_account" ref="account_tax_vat" />
+      <field name="credit_note_account" ref="account_tax_vat" />
+      <field name="account" ref="account_root" />
+    </record>
+    <!--                    -->
+    <!-- Tax Code Templates -->
+    <!--                    -->
+    <record model="account.tax.code.template" id="tax_code_VAT201">
+      <field name="code">VAT201</field>
+      <field name="name">South Africa VAT201</field>
+      <field name="account" ref="account_root" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_B">
+      <field name="code">B</field>
+      <field name="name">Bemessungsgrundlage (DELETE)</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_VAT201" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_VST">
+      <field name="code">VST</field>
+      <field name="name">Abziehbare Vorsteuerbetr&#228;ge (DELETE)</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_VAT201" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_83">
+      <field name="code">83</field>
+      <field name="name">Verbleibende Vorauszahlung (prepend &#8220;-&#8221;) (DELETE)</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_VAT201" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_vat_amount">
+      <field name="code">vat_amount</field>
+      <field name="name">Payable Amount (+) / Credit Amount (-)</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_VAT201" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_vat_payable">
+      <field name="code">vat_payable</field>
+      <field name="name">VAT Payable</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_vat_amount" />
+    </record>
+    <record model="account.tax.code.template" id="tax_code_vat_deductible">
+      <field name="code">vat_deductible</field>
+      <field name="name">VAT Deductible (input tax)</field>
+      <field name="account" ref="account_root" />
+      <field name="parent" ref="tax_code_vat_amount" />
+    </record>
+    <!--                         -->
+    <!-- Tax Code Line Templates -->
+    <!--                         -->
+    <record model="account.tax.code.line.template" id="tax_code_83-tax_vst_19-0">
+      <field name="code" ref="tax_code_83" />
+      <field name="tax" ref="tax_vst_19" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_1-1">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_1" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_1-2">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_1" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_1A-3">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_1A" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_1A-4">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_1A" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_2-5">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_2" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_2-6">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_2" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_2A-7">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_2A" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_2A-8">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_2A" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_3-9">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_3" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_3-10">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_3" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_5-11">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_5" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_5-12">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_5" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_7-13">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_7" />
+      <field name="operator">+</field>
+      <field name="amount">tax</field>
+      <field name="type">invoice</field>
+    </record>
+    <record model="account.tax.code.line.template" id="tax_code_vat_payable-tax_A_7-14">
+      <field name="code" ref="tax_code_vat_payable" />
+      <field name="tax" ref="tax_A_7" />
+      <field name="operator">-</field>
+      <field name="amount">tax</field>
+      <field name="type">credit</field>
+    </record>
+    <!--                                    -->
+    <!-- TODO: No support for tax rules yet -->
+    <!--                                    -->
+  </data>
+</tryton>
