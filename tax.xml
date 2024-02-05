@@ -17,7 +17,7 @@
     <!-- Tax Templates -->
     <!--               -->
     <record model="account.tax.template" id="tax_A_1">
-      <field name="name">A_1</field>
+      <field name="name">A_1 - Standard rate (excl capital goods, services, accommodation)</field>
       <field name="description">Standard rate (excl capital goods, services, accommodation)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -27,7 +27,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_1A">
-      <field name="name">A_1A</field>
+      <field name="name">A_1A - Standard rate (capital goods and services)</field>
       <field name="description">Standard rate (capital goods and services)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -37,7 +37,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_2">
-      <field name="name">A_2</field>
+      <field name="name">A_2 - Zero rate (excluding goods exported)</field>
       <field name="description">Zero rate (excluding goods exported)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.0')" />
@@ -47,7 +47,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_2A">
-      <field name="name">A_2A</field>
+      <field name="name">A_2A - Zero rate (only exported goods)</field>
       <field name="description">Zero rate (only exported goods)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.0')" />
@@ -57,7 +57,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_3">
-      <field name="name">A_3</field>
+      <field name="name">A_3 - Exempt and non-supplies</field>
       <field name="description">Exempt and non-supplies</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.0')" />
@@ -67,27 +67,27 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_5">
-      <field name="name">A_5</field>
+      <field name="name">A_5 - Supply of accommodation (exceeding 28 days)</field>
       <field name="description">Supply of accommodation (exceeding 28 days)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.09')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_A_7">
-      <field name="name">A_7</field>
+      <field name="name">A_7 - Supply of accommodation (not exceeding 28 days)</field>
       <field name="description">Supply of accommodation (not exceeding 28 days)</field>
       <field name="group" ref="group_vat_output" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_14">
-      <field name="name">B_14</field>
+      <field name="name">B_14 - Capital goods and services received</field>
       <field name="description">Capital goods and services received</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -97,7 +97,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_14A">
-      <field name="name">B_14A</field>
+      <field name="name">B_14A - Capital goods imported</field>
       <field name="description">Capital goods imported</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -107,7 +107,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_15">
-      <field name="name">B_15</field>
+      <field name="name">B_15 - Goods and services received (not capital goods)</field>
       <field name="description">Goods and services received (not capital goods)</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -117,7 +117,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_16">
-      <field name="name">B_16</field>
+      <field name="name">B_16 - Change in use</field>
       <field name="description">Change in use</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -127,7 +127,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_17">
-      <field name="name">B_17</field>
+      <field name="name">B_17 - Bad debts</field>
       <field name="description">Bad debts</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
@@ -137,7 +137,7 @@
       <field name="account" ref="account_root" />
     </record>
     <record model="account.tax.template" id="tax_B_18">
-      <field name="name">B_18</field>
+      <field name="name">B_18 - Other</field>
       <field name="description">Other</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
