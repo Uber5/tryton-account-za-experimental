@@ -91,7 +91,7 @@
       <field name="description">Capital goods and services received</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
@@ -111,7 +111,7 @@
       <field name="description">Goods and services received (not capital goods)</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
@@ -121,7 +121,7 @@
       <field name="description">Change in use</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
@@ -131,7 +131,7 @@
       <field name="description">Bad debts</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
@@ -141,7 +141,7 @@
       <field name="description">Other</field>
       <field name="group" ref="group_vat_input" />
       <field name="rate" eval="Decimal('0.15')" />
-      <field name="type">none</field>
+      <field name="type">percentage</field>
       <field name="invoice_account" ref="account_tax_vat" />
       <field name="credit_note_account" ref="account_tax_vat" />
       <field name="account" ref="account_root" />
